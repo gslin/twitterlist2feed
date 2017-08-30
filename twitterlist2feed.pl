@@ -35,6 +35,8 @@ do {
     $feed->title(sprintf 'Twitter List: %s/%s', $owner_screen_name, $slug);
 
     foreach my $st (@$statuses) {
+        foreach my $media (@{$st->{extended_entities}{media}}) {
+        }
     }
 
     print $feed->as_xml;

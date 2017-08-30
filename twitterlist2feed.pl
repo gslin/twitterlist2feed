@@ -5,6 +5,9 @@ use strict;
 use warnings;
 
 use Config::IniFiles;
+use Date::Parse;
+use DateTime;
+use HTML::Entities;
 use Net::Twitter;
 use XML::Feed;
 
@@ -36,6 +39,26 @@ do {
 
     foreach my $st (@$statuses) {
         foreach my $media (@{$st->{extended_entities}{media}}) {
+            my $e = XML::Feed::Entry->new;
+
+            $e->author($st->{user}{screen_name});
+            $e->link($media->{expanded_url});
+
+            my $ctime = str2time($st->{created_at});
+            $e->modified(DateTime->from_epoch(epoch => $ctime));
+
+            my $content = XML::Feed::Content->new({
+                body => '<img alt="" src="' . encode_entities($media->{media_url_https}) . '"/>',
+                type => 'text/html',
+            });
+            $e->content($content);
+
+            $content = XML::Feed::Content->new({
+                body => $st->{text},
+                type => 'text/plain',
+            });
+            $e->summary($content);
+            $e->title($st->{text});
         }
     }
 

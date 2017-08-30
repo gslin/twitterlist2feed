@@ -6,6 +6,7 @@ use warnings;
 
 use Config::IniFiles;
 use Net::Twitter;
+use XML::Feed;
 
 do {
     die if !defined $ARGV[1];
@@ -28,6 +29,9 @@ do {
         slug => $slug,
         owner_screen_name => $owner_screen_name,
     });
+
+    my $feed = XML::Feed->new('Atom');
+    print $feed->as_xml;
 } while (0);
 
 __END__

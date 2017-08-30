@@ -21,6 +21,13 @@ do {
 
     my $owner_screen_name = $ARGV[0];
     my $slug = $ARGV[1];
+
+    my $statuses = $nt->list_statuses({
+        count => 100,
+        include_rts => 'false',
+        slug => $slug,
+        owner_screen_name => $owner_screen_name,
+    });
 } while (0);
 
 __END__

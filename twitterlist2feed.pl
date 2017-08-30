@@ -61,6 +61,8 @@ do {
             });
             $e->summary($content);
             $e->title($st->{text});
+
+            $feed->add_entry($e);
         }
     }
 

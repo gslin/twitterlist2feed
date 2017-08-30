@@ -37,6 +37,7 @@ do {
 
     $feed->title(sprintf 'Twitter List: %s/%s', $owner_screen_name, $slug);
 
+    my $ctime_max = 0;
     foreach my $st (@$statuses) {
         foreach my $media (@{$st->{extended_entities}{media}}) {
             my $e = XML::Feed::Entry->new;
@@ -45,6 +46,7 @@ do {
             $e->link($media->{expanded_url});
 
             my $ctime = str2time($st->{created_at});
+            $ctime_max = $ctime if $ctime > $ctime_max;
             $e->modified(DateTime->from_epoch(epoch => $ctime));
 
             my $content = XML::Feed::Content->new({
@@ -61,6 +63,8 @@ do {
             $e->title($st->{text});
         }
     }
+
+    $feed->modified(DateTime->from_epoch(epoch => $ctime_max));
 
     print $feed->as_xml;
 } while (0);

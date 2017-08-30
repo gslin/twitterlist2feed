@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gslin/twitterlist2feed.svg?branch=master)](https://travis-ci.org/gslin/twitterlist2feed)
+
 # twitterlist2feed
 
 Export all media (photos) of a Twitter list into another Atom feed.

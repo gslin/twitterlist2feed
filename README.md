@@ -40,3 +40,8 @@ Example
 To access https://twitter.com/gslin/lists/fj:
 
     ./twitterlist2feed.pl gslin fj
+
+License
+-------
+
+See `LICENSE` file.

@@ -34,14 +34,14 @@ In `~/.config/twitterlist2feed/config.ini`:
 Usage
 -----
 
-    ./twitterlist2feed.pl [screenname] [listname]
+    bin/twitterlist2feed.pl [screenname] [listname]
 
 Example
 -------
 
 To access https://twitter.com/gslin/lists/fj:
 
-    ./twitterlist2feed.pl gslin fj
+    bin/twitterlist2feed.pl gslin fj
 
 License
 -------

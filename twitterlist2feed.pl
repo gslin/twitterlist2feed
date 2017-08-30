@@ -34,6 +34,9 @@ do {
 
     $feed->title(sprintf 'Twitter List: %s/%s', $owner_screen_name, $slug);
 
+    foreach my $st (@$statuses) {
+    }
+
     print $feed->as_xml;
 } while (0);
 

@@ -11,6 +11,8 @@ use HTML::Entities;
 use Net::Twitter;
 use XML::Feed;
 
+our $VERSION = '0.1';
+
 do {
     die if !defined $ARGV[1];
 

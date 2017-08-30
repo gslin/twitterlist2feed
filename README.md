@@ -2,6 +2,22 @@
 
 Export all media (photos) of a Twitter list into another Atom feed.
 
+Pre-requirement
+---------------
+
+Install these modules:
+
+    Config::IniFiles
+    Date::Parse
+    DateTime
+    HTML::Entities
+    Net::Twitter
+    XML::Feed
+
+With [cpanm](https://github.com/miyagawa/cpanminus):
+
+    cpanm -n Config::IniFiles Date::Parse DateTime HTML::Entities Net::Twitter XML::Feed
+
 Setup
 -----
 

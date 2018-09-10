@@ -52,7 +52,7 @@ do {
             $e->modified(DateTime->from_epoch(epoch => $ctime));
 
             my $content = XML::Feed::Content->new({
-                body => '<img alt="" src="' . encode_entities($media->{media_url_https}) . '"/>',
+                body => '<img alt="" crossorigin="anonymous" src="' . encode_entities($media->{media_url_https}) . '"/>',
                 type => 'text/html',
             });
             $e->content($content);
